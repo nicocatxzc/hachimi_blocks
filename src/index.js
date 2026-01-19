@@ -5,7 +5,9 @@ import noticeBlock from "./modules/notice";
 import showcardBlock from "./modules/showcard";
 import conversationBlock from "./modules/converstation";
 import bilibiliBlock from "./modules/bilibili";
+import templateBlocks from "./modules/template";
 import "./style.scss";
+import markdownBlock from "./modules/markdown";
 
 domReady(() => {
     // 获取已有分类
@@ -32,6 +34,8 @@ export default function initBlocks() {
         showcardBlock();
         conversationBlock();
         bilibiliBlock();
+        templateBlocks();
+        markdownBlock();
     } catch (error) {
         console.log(`发生错误${error}`);
         console.log(error.stack);
