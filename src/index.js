@@ -5,6 +5,7 @@ import noticeBlock from './modules/notice'
 import showcardBlock from './modules/showcard'
 import conversationBlock from './modules/converstation'
 import bilibiliBlock from './modules/bilibili';
+import "./style.scss";
 
 domReady(() => {
 	// 获取已有分类
