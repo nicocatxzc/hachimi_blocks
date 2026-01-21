@@ -32,7 +32,7 @@ add_action('enqueue_block_editor_assets', 'sakurairo_editor_styles');
 function sakurairo_editor_styles()
 {
     wp_enqueue_style('fontawesome-icons', 'https://s4.zstatic.net/ajax/libs/font-awesome/6.7.2/css/all.min.css', array(), null);
-    wp_enqueue_style('iro-codes', plugin_dir_url(__FILE__) . 'style-index.css', array(), '3.0.10');
+    wp_enqueue_style('iro-codes', plugin_dir_url(__FILE__) . 'build/style-index.css', array(), '3.0.10');
 }
 
 function iro_load_editor_block()
@@ -41,7 +41,7 @@ function iro_load_editor_block()
     // 加载编辑器脚本
     wp_enqueue_script(
         'iroBlockEditor',
-        get_theme_file_uri('/inc/blocks/build/index.js'),
+        plugin_dir_url(__FILE__) . 'build/index.js',
         $asset_file['dependencies'],
         $asset_file['version']
     );
