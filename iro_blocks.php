@@ -37,17 +37,13 @@ function sakurairo_editor_styles()
 
 function iro_load_editor_block()
 {
+    $asset_file = include(plugin_dir_path(__FILE__) . 'build/index.asset.php');
     // 加载编辑器脚本
     wp_enqueue_script(
         'iroBlockEditor',
-        plugin_dir_url(__FILE__) . 'index.js',
-        [
-            'wp-hooks',
-            'wp-i18n',
-            'wp-element',
-            'wp-components',
-            'wp-block-editor',
-        ]
+        get_theme_file_uri('/inc/blocks/build/index.js'),
+        $asset_file['dependencies'],
+        $asset_file['version']
     );
 }
 add_action('enqueue_block_editor_assets', 'iro_load_editor_block');
