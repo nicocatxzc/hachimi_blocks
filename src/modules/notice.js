@@ -135,6 +135,7 @@ function edit({ attributes, setAttributes }) {
 
 export default function noticeBlock() {
     registerBlockType("sakurairo/notice-block", {
+        apiVersion: 2,
         title: lang.blockTitle,
         description: "",
         icon: "format-status",

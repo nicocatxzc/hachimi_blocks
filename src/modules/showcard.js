@@ -185,6 +185,7 @@ function edit({ attributes, setAttributes }) {
 
 export default function showcardBlock() {
     registerBlockType("sakurairo/showcard-block", {
+        apiVersion: 2,
         title: lang.blockTitle,
         icon: "id-alt",
         category: "sakurairo",
