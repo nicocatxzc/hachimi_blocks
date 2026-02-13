@@ -8,6 +8,7 @@ import bilibiliBlock from "./modules/bilibili";
 import templateBlocks from "./modules/template";
 import "./style.scss";
 import markdownBlock from "./modules/markdown";
+import ghcard from "./modules/ghcard";
 
 domReady(() => {
     // 获取已有分类
@@ -36,6 +37,7 @@ export default function initBlocks() {
         bilibiliBlock();
         templateBlocks();
         markdownBlock();
+        ghcard();
     } catch (error) {
         console.log(`发生错误${error}`);
         console.log(error.stack);
