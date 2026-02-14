@@ -60,11 +60,13 @@ export default function () {
         save({ attributes }) {
             const { path } = attributes;
 
-            return (
-                <div className="hachimi-ghcard-block">
-                    {`[ghcard path="${path}"]`}
-                </div>
-            );
+            if (!path) return null;
+
+            const url = path.startsWith("http")
+                ? path
+                : `https://github.com/${path}`;
+
+            return <a href={url}>{url}</a>;
         },
     });
 }
