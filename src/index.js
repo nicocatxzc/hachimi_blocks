@@ -6,6 +6,7 @@ import showcardBlock from "./modules/showcard";
 import conversationBlock from "./modules/converstation";
 import bilibiliBlock from "./modules/bilibili";
 import "./style.scss";
+import ghcard from "./modules/ghcard";
 
 domReady(() => {
     // 获取已有分类
@@ -32,6 +33,7 @@ export default function initBlocks() {
         showcardBlock();
         conversationBlock();
         bilibiliBlock();
+        ghcard();
     } catch (error) {
         console.log(`发生错误${error}`);
         console.log(error.stack);
