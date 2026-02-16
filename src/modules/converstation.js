@@ -55,7 +55,13 @@ export default function conversationBlock() {
             );
         }
 
-        const blockProps = useBlockProps();
+        const blockProps = useBlockProps({
+            className: "conversations-code",
+            style: {
+                display: "flex",
+                flexDirection: direction,
+            },
+        });
         // 切换方向
         const toggleDirection = () => {
             setAttributes({
@@ -96,7 +102,6 @@ export default function conversationBlock() {
                 </BlockControls>
                 <div
                     {...blockProps}
-                    className="conversations-code"
                     style={{ display: "flex", flexDirection: direction }}
                 >
                     {avatar ? (

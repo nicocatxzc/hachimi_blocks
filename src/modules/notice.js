@@ -50,22 +50,22 @@ let lang = createI18n({
 const TYPES = {
     task: {
         label: lang.taskLabel,
-        icon: '<i class="fa-solid fa-clipboard-list"></i>',
+        icon: "fa-solid fa-clipboard-list",
         className: "task",
     },
     warning: {
         label: lang.warningLabel,
-        icon: '<i class="fa-solid fa-triangle-exclamation"></i>',
+        icon: "fa-solid fa-triangle-exclamation",
         className: "warning",
     },
     noway: {
         label: lang.nowayLabel,
-        icon: '<i class="fa-solid fa-square-xmark"></i>',
+        icon: "fa-solid fa-square-xmark",
         className: "noway",
     },
     buy: {
         label: lang.buyLabel,
-        icon: '<i class="fa-solid fa-square-check"></i>',
+        icon: "fa-solid fa-square-check",
         className: "buy",
     },
 };
@@ -93,8 +93,11 @@ function edit({ attributes, setAttributes }) {
         ];
     }
 
-    const blockProps = useBlockProps();
     const typeInfo = TYPES[type];
+
+    const blockProps = useBlockProps({
+        className: `shortcodestyle ${typeInfo.className}`,
+    });
 
     return (
         <Fragment>
@@ -115,11 +118,10 @@ function edit({ attributes, setAttributes }) {
                 </ToolbarGroup>
             </BlockControls>
 
-            <div
-                {...blockProps}
-                className={`shortcodestyle ${typeInfo.className}`}
-            >
-                <RawHTML>{typeInfo.icon}</RawHTML>
+            <div {...blockProps}>
+                <span contentEditable={false}>
+                    <i className={typeInfo.icon} />
+                </span>
                 <RichText
                     tagName="span"
                     value={content}
@@ -161,7 +163,7 @@ export default function noticeBlock() {
             const { icon, className } = TYPES[type];
             return (
                 <div className={`shortcodestyle ${className}`}>
-                    <RawHTML>{icon}</RawHTML>
+                    <i className={icon} />
                     <RichText.Content tagName="span" value={content} />
                 </div>
             );
