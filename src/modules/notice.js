@@ -136,7 +136,7 @@ function edit({ attributes, setAttributes }) {
 }
 
 export default function noticeBlock() {
-    registerBlockType("sakurairo/notice-block", {
+    registerBlockType("sakurairo/notice", {
         apiVersion: 2,
         title: lang.blockTitle,
         description: "",
@@ -145,8 +145,6 @@ export default function noticeBlock() {
         attributes: {
             content: {
                 type: "string",
-                source: "html",
-                selector: "span",
             },
             type: {
                 type: "string",
@@ -158,15 +156,8 @@ export default function noticeBlock() {
             },
         },
         edit,
-        save({ attributes }) {
-            const { content, type } = attributes;
-            const { icon, className } = TYPES[type];
-            return (
-                <div className={`shortcodestyle ${className}`}>
-                    <i className={icon} />
-                    <RichText.Content tagName="span" value={content} />
-                </div>
-            );
+        save() {
+            return null
         },
         example: {
             attributes: {

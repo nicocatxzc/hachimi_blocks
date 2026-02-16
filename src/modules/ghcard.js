@@ -28,7 +28,7 @@ let lang = createI18n({
 });
 
 export default function () {
-    registerBlockType("hachimi/ghcard", {
+    registerBlockType("sakurairo/ghcard", {
         apiVersion: 2,
         title: lang.blockTitle,
         icon: createElement("i", { className: "fa-brands fa-github" }),
@@ -81,16 +81,8 @@ export default function () {
             );
         },
 
-        save({ attributes }) {
-            const { path } = attributes;
-
-            if (!path) return null;
-
-            const url = path.startsWith("http")
-                ? path
-                : `https://github.com/${path}`;
-
-            return <a href={url}>{url}</a>;
+        save() {
+            return null
         },
     });
 }

@@ -1,7 +1,6 @@
 @layer blocks {
     // 提示块
     .shortcodestyle {
-        margin: 20px 8px !important;
         padding: 15px 15px 15px 30px !important;
         position: relative !important;
         color: #505050;
@@ -62,7 +61,7 @@
         position: relative;
         width: 240px;
         height: auto;
-        margin: 20px 0;
+        margin: auto;
         padding: 10px;
         border-radius: 10px;
         box-shadow: 0 1px 30px -4px #e8e8e8;

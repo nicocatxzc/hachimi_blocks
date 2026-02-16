@@ -127,38 +127,8 @@ export default function bilibiliBlock() {
             },
         },
         edit,
-        save({ attributes }) {
-            const id = attributes.videoId?.trim();
-            if (!id) return null;
-
-            let src = "";
-            if (/^av\d+$/i.test(id)) {
-                const avid = id.replace(/^av/i, "");
-                src = `https://player.bilibili.com/player.html?avid=${avid}&page=1&autoplay=0&danmaku=0`;
-            } else if (/^BV[a-zA-Z0-9]+$/.test(id)) {
-                src = `https://player.bilibili.com/player.html?bvid=${id}&page=1&autoplay=0&danmaku=0`;
-            }
-
-            if (!src) return null;
-
-            return (
-                <div style={{ position: "relative", padding: "30% 45%" }}>
-                    <iframe
-                        src={src}
-                        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
-                        allowFullScreen
-                        style={{
-                            position: "absolute",
-                            width: "100%",
-                            height: "100%",
-                            left: 0,
-                            top: 0,
-                            border: "none",
-                            overflow: "hidden",
-                        }}
-                    ></iframe>
-                </div>
-            );
+        save() {
+            return null
         },
         example: {
             attributes: {
