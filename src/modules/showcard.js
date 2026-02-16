@@ -7,6 +7,7 @@ import {
     MediaUpload,
     MediaUploadCheck,
     URLInputButton,
+    RichText
 } from "@wordpress/block-editor";
 import {
     PanelBody,
@@ -90,7 +91,9 @@ function edit({ attributes, setAttributes }) {
         );
     }
 
-    const blockProps = useBlockProps();
+    const blockProps = useBlockProps({
+        className: "showcard",
+    });
 
     const onSelectImage = (media) => {
         setAttributes({ img: media.url });
@@ -154,7 +157,7 @@ function edit({ attributes, setAttributes }) {
                 </PanelBody>
             </InspectorControls>
 
-            <div {...blockProps} className="showcard">
+            <div {...blockProps}>
                 <div
                     className="img"
                     style={{
@@ -163,7 +166,7 @@ function edit({ attributes, setAttributes }) {
                             : "#ccc",
                     }}
                 >
-                    <a href={link}>
+                    <a href={link} onClick={(e) => e.preventDefault()}>
                         <button
                             className="showcard-button"
                             style={{ color: color }}
@@ -173,10 +176,14 @@ function edit({ attributes, setAttributes }) {
                     </a>
                 </div>
                 <div className="icon-title">
-                    <RawHTML>
-                        {`<i class="${icon}" style="color:${color} !important;"></i>`}
-                    </RawHTML>
-                    <span className="title">{title}</span>
+                    <i className={icon} style={{ color }} />
+                    <RichText
+                        tagName="span"
+                        className="title"
+                        value={title}
+                        onChange={(value) => setAttributes({ title: value })}
+                        placeholder={lang.titlePlaceholder}
+                    />
                 </div>
             </div>
         </Fragment>

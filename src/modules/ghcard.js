@@ -2,7 +2,7 @@ import { registerBlockType } from "@wordpress/blocks";
 import { useBlockProps } from "@wordpress/block-editor";
 import { TextControl } from "@wordpress/components";
 import { createElement } from "@wordpress/element";
-import { createI18n } from "../i18n";
+import createI18n from "../i18n";
 
 let lang = createI18n({
     "zh-CN": {
