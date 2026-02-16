@@ -2,11 +2,35 @@ import { registerBlockType } from "@wordpress/blocks";
 import { useBlockProps } from "@wordpress/block-editor";
 import { TextControl } from "@wordpress/components";
 import { createElement } from "@wordpress/element";
+import { createI18n } from "../i18n";
+
+let lang = createI18n({
+    "zh-CN": {
+        blockTitle: "Github 仓库卡片",
+        fieldLabel: "仓库地址",
+        fieldHelp: "示例：author/repo 或 https://github.com/author/repo",
+    },
+    "zh-TW": {
+        blockTitle: "Github 倉庫卡片",
+        fieldLabel: "倉庫地址",
+        fieldHelp: "範例：author/repo 或 https://github.com/author/repo",
+    },
+    ja: {
+        blockTitle: "GitHub リポジトリカード",
+        fieldLabel: "リポジトリURL",
+        fieldHelp: "例：author/repo または https://github.com/author/repo",
+    },
+    en: {
+        blockTitle: "GitHub Repository Card",
+        fieldLabel: "Repository URL",
+        fieldHelp: "Example: author/repo or https://github.com/author/repo",
+    },
+});
 
 export default function () {
     registerBlockType("hachimi/ghcard", {
         apiVersion: 2,
-        title: "github仓库卡片",
+        title: lang.blockTitle,
         icon: createElement("i", { className: "fa-brands fa-github" }),
         category: "sakurairo",
 
@@ -43,12 +67,12 @@ export default function () {
                             }}
                         >
                             <i className="fa-brands fa-github"></i>
-                            GitHub 仓库卡片
+                            {lang.blockTitle}
                         </div>
 
                         <TextControl
-                            label="仓库地址"
-                            help="示例：author/repo 或 https://github.com/author/repo"
+                            label={lang.fieldLabel}
+                            help={lang.fieldHelp}
                             value={path}
                             onChange={(value) => setAttributes({ path: value })}
                         />
