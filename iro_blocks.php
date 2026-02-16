@@ -33,7 +33,7 @@ function sakurairo_editor_styles()
 {
     global $core_lib_basepath;
     wp_enqueue_style('fontawesome-icons', iro_opt('fontawesome_source', 'https://s4.zstatic.net/ajax/libs/font-awesome/6.7.2/css/all.min.css'), array(), null);
-    wp_enqueue_style('iro-codes', $core_lib_basepath . '/css/shortcodes.css', array(), IRO_VERSION);
+    wp_enqueue_style('iro-codes', get_theme_file_uri('/inc/blocks/build/style-index.css'), array(), IRO_VERSION);
 }
 
 function iro_load_editor_block()
